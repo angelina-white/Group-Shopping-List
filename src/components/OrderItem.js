@@ -1,23 +1,8 @@
-import { useState } from "react"
-
 function OrderItem({ skuId, totalQty, skus, orderPrice, nameId, names, deleteInput, orderId})
 {
+    const label = skus.find(item => item.id === skuId)
 
-    const label = skus.find((item) =>
-    {
-        if (item.id == skuId)
-        {
-            return item
-        }
-    })
-
-    const name = names.find((item) =>
-    {
-        if (item.id == nameId)
-        {
-            return item
-        }
-    })
+    const name = names.find(item => item.id === nameId)
 
     return (
         <tr>

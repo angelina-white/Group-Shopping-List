@@ -7,13 +7,14 @@ function Sku({ id, label, totalUnits, price, handleOrderItem, addInput })
     //handles unit quantity change
     function handleUnitQtyChange(event)
     {
-        if (event.target.value == 0 || event.target.value == "" || event.target.value == "NaN")
+        if (event.target.value === 0 || event.target.value === "" || event.target.value === "NaN")
         {
             setYouPay("$0.00")
         }
         else
         {
-            let qty = ( eval(event.target.value) )
+            let qty = (event.target.value)
+            console.log(qty)
             let total = (price * qty).toFixed(2)
             setYouPay(total)
             

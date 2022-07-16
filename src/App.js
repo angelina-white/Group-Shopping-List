@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './App.css';
 import Home from './components/Home';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
 
 function App() {
   const [names, setNames] = useState([]);
@@ -35,7 +34,7 @@ function App() {
   {
     const changeOrder = orders.map((item) =>
     {
-      if (item.id == updatedOrderItem.id)
+      if (item.id === updatedOrderItem.id)
       {
         return updatedOrderItem
       }
@@ -46,7 +45,6 @@ function App() {
     })
     setOrders(changeOrder)
   }
-
 
   function handleDeleteOrder(orderItem)
   {

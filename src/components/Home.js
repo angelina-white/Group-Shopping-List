@@ -5,62 +5,24 @@ import { useState } from "react"
 import Dropdown from "react-bootstrap/Dropdown";
 import Table from "react-bootstrap/Table";
 
-function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem, handleDeleteOrder } ) {
+function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem, handleDeleteOrder } ) 
+{
+    //gets today's date
+    const current = new Date();
+    const currentDate = `${current.getFullYear()}-${current.getMonth()+1}-${current.getDate()}`
 
-    //finds the shopper name
-    const shopperName = names.map(name_obj => 
-    {
-        if (name_obj.name === 'Billy')
-        {
-            return name_obj.name
-        }
-    })
+    const shopperId = 1;
 
-    const shopperId = names.map((item) =>
-    {
-        if (item.name === 'Billy')
-        {
-            return item.id
-        }
-    })
-
-    //get shop year
-    const shopYear = orders.map((item) =>
-    {
-        if (item.year == '2022')
-        {
-            return item.year
-        }
-    })
-
-    //get shop month
-    const shopMonth = orders.map((item) =>
-    {
-        if (item.month == '06')
-        {
-            return item.month
-        }
-    })
-
-    //get shop day
-    const shopDay = orders.map((item) =>
-    {
-        if (item.day == '25')
-        {
-            return item.day
-        }
-    })
-
-    //get name and nameId from drop down 
+    // //get name and nameId from drop down 
     const [chosenName, setChosenName] = useState("Billy")
-    const [chosenNameId, setChosenNameId] = useState(shopperId[0])
+    const [chosenNameId, setChosenNameId] = useState(shopperId)
     function changeName(nameObj)
     {
         setChosenName(nameObj.name)
         setChosenNameId(nameObj.nameId)
     }
 
-    //populate drop down with names
+    // //populate drop down with names
     const nameList = names.map((item) =>
     {
         return (
@@ -76,13 +38,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
     }
 
     //find shopping day first
-    const filteredShoppingByDate = orders.filter((item) =>
-    {
-        if (item.year == shopYear[0] && item.month == shopMonth[0] && item.day == shopDay[0])
-        return (
-            item
-        )
-    })
+    const filteredShoppingByDate = orders.filter(item => item.year === 2022 && item.month === 6 && item.day === 25)
 
     //get shopping list
     const shoppingList = filteredShoppingByDate.map((item) =>
@@ -92,7 +48,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
         )
     })
 
-    //adds input to orders
+    // adds input to orders
     function addInput()
     {
         let submitOrderObj = 
@@ -100,20 +56,14 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
             sku_id: parseInt(orderItem.skuId),
             quantity: parseFloat(orderItem.totalQty),
             name_id: parseInt(chosenNameId),
-            year: parseInt(shopYear[0]),
-            month: parseInt(shopMonth[0]),
-            day: parseInt(shopDay[0]),
+            year: 2022,
+            month: 6,
+            day: 25,
             order_price: parseFloat(orderItem.orderPrice)
         }
 
         //finding whether post or patch
-        const filteredOrders = orders.filter((item) =>
-        {
-            if (item.name_id == chosenNameId && item.year == shopYear[0] && item.month == shopMonth[0] && item.day == shopDay[0] && item.sku_id == orderItem.skuId)
-            {
-                return (item)
-            }
-        })
+        const filteredOrders = orders.filter(item => item.name_id === chosenNameId && item.year === 2022 && item.month === 6 && item.day === 25 && item.sku_id === orderItem.skuId)
 
         //get item id for patch request
         const filteredOrderId = filteredOrders.map((item) =>
@@ -121,7 +71,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
             return item.id
         })
 
-        if (filteredOrders == "")
+        if (filteredOrders === "")
         {
             fetch("http://localhost:9292/orders", 
             {
@@ -163,7 +113,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
             .then((deletedReview) => handleDeleteOrder(deletedReview));
     }
 
-    //list of skus
+    // list of skus
     const skuList = skus.map((item) =>
     {
         return (
@@ -174,8 +124,8 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
     return (
         <div>
             <div className="shoppingInfoContainer">
-                <h3>Shopper: { shopperName[0]}</h3>
-                <h3>{ shopYear[0] }-{ shopMonth[0] }-{ shopDay[0] } </h3>
+                <h3>Shopper: Billy</h3>
+                <h3>{ currentDate }</h3>
                 <h3>Store: Costco</h3>
             </div>
             <div className="orderInputContainer">
