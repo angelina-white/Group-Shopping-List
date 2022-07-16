@@ -52,7 +52,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
     })
 
     //get name and nameId from drop down 
-    const [chosenName, setChosenName] = useState(shopperName[0])
+    const [chosenName, setChosenName] = useState("Billy")
     const [chosenNameId, setChosenNameId] = useState(shopperId[0])
     function changeName(nameObj)
     {
@@ -174,13 +174,13 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
     return (
         <div>
             <div className="shoppingInfoContainer">
-                <h2>{ shopperName[0]}</h2>
-                <h2>{ shopYear[0] }-{ shopMonth[0] }-{ shopDay[0] } </h2>
-                <h2>Store: Costco</h2>
+                <h3>Shopper: { shopperName[0]}</h3>
+                <h3>{ shopYear[0] }-{ shopMonth[0] }-{ shopDay[0] } </h3>
+                <h3>Store: Costco</h3>
             </div>
             <div className="orderInputContainer">
                 <Dropdown>
-                    <h5 id="name">Name:</h5>
+                    <h4 id="name">Buying:</h4>
                     <Dropdown.Toggle variant="success" id="nameDropdown">
                         { chosenName }
                     </Dropdown.Toggle>
@@ -192,11 +192,11 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
                     <Table className="orderInputTable" striped bordered hover size="sm">
                         <thead>
                             <th scope="col">Label</th>
-                            <th scope="col">Total Units</th>
+                            <th scope="col">Units</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Unit Qty</th>
-                            <th scope="col">Abs Qty</th>
+                            <th scope="col">Qty</th>
                             <th scope="col">You pay:</th>
+                            <th scope="col">Action</th>
                         </thead>
                         <tbody>
                             { skuList }
@@ -205,7 +205,7 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
                 </div>
             </div>
             <div className="shoppingListContainer">
-                <h3>Shopping List</h3>
+                <h2 id="shoppingListTitle">Shopping List</h2>
                 <Table className="shoppingListLines" striped bordered hover size="sm">
                     <thead>
                         <th scope="col">Name</th>

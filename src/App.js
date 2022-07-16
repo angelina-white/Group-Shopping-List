@@ -56,20 +56,8 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
-        <nav>
-          <ul className="linkClass">
-          <h1 id="title">Shop We All</h1>
-            <li className="navLinks"><Link to='/'>Home</Link></li>
-            {/* <li className="navLinks"><Link to='name management'>Name Management</Link></li> */}
-            {/* <li className="navLinks"><Link to='shopdates'>Shop Dates</Link></li> */}
-          </ul>
-        </nav>
-        <Routes>
-            <Route path='/' element={ <Home names= {names} orders = {orders} skus={skus} handleAddOrderItem={ handleAddOrderItem } handleUpdateOrderItem={ handleUpdateOrderItem } handleDeleteOrder={ handleDeleteOrder }/>} />
-          </Routes>
-      </Router>
-      <div id="footer"></div>
+      <h1 id="title">Group Shopping List</h1>
+      <Home names= {names} orders = {orders} skus={skus} handleAddOrderItem={ handleAddOrderItem } handleUpdateOrderItem={ handleUpdateOrderItem } handleDeleteOrder={ handleDeleteOrder }/>
   </div>
 );
 }

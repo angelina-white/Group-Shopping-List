@@ -29,54 +29,13 @@ function Sku({ id, label, totalUnits, price, handleOrderItem, addInput })
         }
     }
 
-    //handles abs quantity change
-    function handleAbsQtyChange(event)
-    {
-        if (event.target.value == 0 || event.target.value == "")
-        {
-            setYouPay("$0.00")
-        }
-        else
-        {
-            let qty = (event.target.value) * .01
-            let total = (price * qty).toFixed(2)
-            setYouPay(total)
-
-            let orderObj = 
-            {
-                skuId: id,
-                label: label,
-                totalQty: qty,
-                orderPrice: total
-            }
-
-            handleOrderItem(orderObj)
-        }
-    }
-
     return (
         <tr>
             <td>{ label }</td>
-            <td>{totalUnits == 1000000 ? 
-                    <div className="noInput totalUnits"></div>
-                    :
-                    totalUnits
-                }</td>
+            <td>{totalUnits}</td>
             <td>{ price }</td>
             <td>
-                {totalUnits == 1000000 ? 
-                    <div className="noInput unitQtyNo"></div>
-                    :
-                    <input className="orderInput unitQtyInput" onChange={ handleUnitQtyChange }></input>
-                }
-            </td>
-            <td>
-                {totalUnits == 1000000 ? 
-                    <input className="orderInput absQtyInput" onChange={ handleAbsQtyChange }></input>
-                    :
-                    <div className="noInput absQtyNo"></div>
-                }
-                <p className="percentage">%</p>
+                <input className="orderInput unitQtyInput" onChange={ handleUnitQtyChange }></input>
             </td>
             <td>{youPay}</td>
             <button onClick={ addInput } className="addButton">Add</button>
