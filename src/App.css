@@ -2,58 +2,58 @@
   text-align: center;
   background-color: #fafcf7;
   height: 175vh;
-}
-
-.linkClass {
-  list-style-type: none;
-  background-color: #cde6d1;
-  height: 65px;
-  font-size: 20px;
+  color: #263028;
 }
 
 #title {
-  float: left;
-  margin-right: 50px;
-  margin-top: 5px;
-}
-
-.navLinks {
-  float: left;
-  margin-top: 15px;
-}
-
-.navLinks:hover {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #79997E;
+  border-bottom: solid 2px;
+  font-family: "Lucida console";
 }
 
 .shoppingInfoContainer {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 15px;
+  background-color: #CDE6D1;
+  width: 205px;
+  height: 125px;
+  margin-left: 620px;
+  padding-top: 3px;
+  border-radius: 2px;
+  color: #263028;
+  font-family: "Lucida console";
 }
 
 #name {
   float: left;
-  margin-left: 100px;
-  margin-top: 7px;
+  margin-left: 75px;
+  margin-top: 5px;
+  font-family: "Lucida console";
 }
 
 #nameDropdown {
   background-color: #89aa9f;
-  margin-left: -1170px;
+  margin-left: -1200px;
   margin-bottom: 20px;
 }
 
 .orderInputs {
-  /* background-color: #cde6d1; */
   width: 650px;
   margin-left: 75px;
   float: left;
+  margin-top: -10px;
 }
 
 .shoppingListContainer {
   width: 550px;
   margin-left: 50px;
   float: left;
-  margin-top: -40px;
+  margin-top: -56px;
+}
+
+#shoppingListTitle {
+  font-family: "Lucida console";
 }
 
 input {
@@ -87,18 +87,6 @@ input {
 .unitQtyInput {
   margin-top: 5px;
   margin-left: 15px;
-  height: 40px;
-  width: 40px;
-}
-
-.absQtyNo {
-  margin-top: 5px;
-  margin-left: 35px;
-}
-
-.absQtyInput {
-  margin-top: 5px;
-  margin-left: 35px;
   height: 40px;
   width: 40px;
 }
