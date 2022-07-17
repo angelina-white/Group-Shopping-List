@@ -160,8 +160,9 @@ function Home( { names, orders, skus, handleAddOrderItem, handleUpdateOrderItem,
                     <thead>
                         <th scope="col">Name</th>
                         <th scope="col">Label</th>
-                        <th scope="col">Total Qty</th>
+                        <th scope="col">Qty</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Action</th>
                     </thead>
                     <tbody>
                         { shoppingList }
